@@ -79,13 +79,7 @@ public final class PhotosCropViewController: UIViewController {
   
   public let editingStack: EditingStack
   public var handlers = Handlers()
-      
-  private let doneButton = UIButton(type: .system)
-  private let cancelButton = UIButton(type: .system)
-  private let aspectRatioButton = UIButton(type: .system)
-  private let resetButton = UIButton(type: .system)
-  private let rotateButton = UIButton(type: .system)
-  
+
   private let aspectRatioControlLayoutGuide = UILayoutGuide()
     
   private var subscriptions = Set<VergeAnyCancellable>()
@@ -146,61 +140,40 @@ public final class PhotosCropViewController: UIViewController {
       completion(.failure(error))
     }
   }
-  
+
   override public func viewDidLoad() {
     super.viewDidLoad()
+
+    store.commit {
+      $0.isSelectingAspectRatio.toggle()
+    }
     
     editingStack.start()
     cropView.isAutoApplyEditingStackEnabled = true
-    view.backgroundColor = .black
+    view.backgroundColor = .white
     view.clipsToBounds = true
-    
-    aspectRatioButton&>.do {
-      $0.setImage(UIImage(named: "aspectratio", in: bundle, compatibleWith: nil), for: .normal)
-      $0.tintColor = .systemGray
-      $0.addTarget(self, action: #selector(handleAspectRatioButton), for: .touchUpInside)
-    }
-    
-    resetButton&>.do {
-      // TODO: Localize
-      $0.setTitle(localizedStrings.button_reset_title, for: .normal)
-      $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-      $0.setTitleColor(UIColor.systemYellow, for: .normal)
-      $0.addTarget(self, action: #selector(handleResetButton), for: .touchUpInside)
-      $0.isHidden = true
-    }
-    
-    rotateButton&>.do {
-      $0.setImage(UIImage(named: "rotate", in: bundle, compatibleWith: nil), for: .normal)
-      $0.tintColor = .systemGray
-      $0.addTarget(self, action: #selector(handleRotateButton), for: .touchUpInside)
-    }
-    
+
+    let rotateButton = UIBarButtonItem(
+        image: UIImage(named: "Reset"),
+        style: .plain,
+        target: self,
+        action: #selector(handleRotateButton)
+    )
+
+    let saveButton = UIBarButtonItem(
+        title: "Save",
+        style: .done,
+        target: self,
+        action: #selector(handleSaveButton)
+    )
+
+    navigationItem.rightBarButtonItems = [saveButton, rotateButton]
+
     let topStackView = UIStackView()&>.do {
-      $0.addArrangedSubview(rotateButton)
-      $0.addArrangedSubview(resetButton)
-      $0.addArrangedSubview(aspectRatioButton)
       $0.distribution = .equalSpacing
     }
 
-    cancelButton&>.do {
-      $0.setTitle(localizedStrings.button_cancel_title, for: .normal)
-      $0.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-      $0.setTitleColor(UIColor.white, for: .normal)
-      $0.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
-    }
-        
-    doneButton&>.do {
-      $0.setTitle(localizedStrings.button_done_title, for: .normal)
-      $0.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-      $0.setTitleColor(UIColor.systemYellow, for: .normal)
-      $0.setTitleColor(UIColor.darkGray, for: .disabled)
-      $0.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
-    }
-    
     let bottomStackView = UIStackView()&>.do {
-      $0.addArrangedSubview(cancelButton)
-      $0.addArrangedSubview(doneButton)
       $0.distribution = .equalSpacing
       $0.axis = .horizontal
       $0.alignment = .fill
@@ -260,22 +233,11 @@ public final class PhotosCropViewController: UIViewController {
       if let state = state._beta_map(\.loadedState) {
         
         /// Loaded
-        
         self.setUpLoadedUI(state: state.primitive)
-                      
-        state.ifChanged(\.hasUncommitedChanges) { hasChanges in
-          self.resetButton.isHidden = !hasChanges
-        }
         
       } else {
         
         /// Loading
-        
-        self.aspectRatioButton.isEnabled = false
-        self.resetButton.isEnabled = false
-        self.rotateButton.isEnabled = false
-        self.doneButton.isEnabled = false
-             
       }
                 
     }
@@ -300,12 +262,7 @@ public final class PhotosCropViewController: UIViewController {
     /**
      Setup
      */
-        
-    self.aspectRatioButton.isEnabled = true
-    self.resetButton.isEnabled = true
-    self.rotateButton.isEnabled = true
-    self.doneButton.isEnabled = true
-    
+
     let control = PhotosCropAspectRatioControl(
       originalAspectRatio: .init(state.imageSize),
       localizedStrings: localizedStrings
@@ -339,18 +296,18 @@ public final class PhotosCropViewController: UIViewController {
     }
     
     cropView.store.sinkState { [weak self] (state) in
-      
+
       guard let self = self else { return }
-      
+
       state.ifChanged(\.proposedCrop?.rotation) { rotation in
-        guard let rotation = rotation else { return }        
+        guard let rotation = rotation else { return }
         self.aspectRatioControl?.setRotation(rotation)
       }
-      
+
       state.ifChanged(\.preferredAspectRatio) { ratio in
         self.aspectRatioControl?.setSelected(ratio)
       }
-      
+
     }
     .store(in: &subscriptions)
         
@@ -363,10 +320,8 @@ public final class PhotosCropViewController: UIViewController {
     options.ifChanged(\.aspectRatioOptions) { value in
       switch value {
       case .fixed(let aspectRatio):
-        aspectRatioButton.alpha = 0
         cropView.setCroppingAspectRatio(aspectRatio)
       case .selectable:
-        aspectRatioButton.alpha = 1
         cropView.setCroppingAspectRatio(nil)
       }
     }
@@ -375,10 +330,8 @@ public final class PhotosCropViewController: UIViewController {
       UIViewPropertyAnimator.init(duration: 0.4, dampingRatio: 1) { [self] in
         if value {
           aspectRatioControl?.alpha = 1
-          aspectRatioButton.tintColor = .systemYellow
         } else {
           aspectRatioControl?.alpha = 0
-          aspectRatioButton.tintColor = .systemGray
         }
       }
       .startAnimation()
@@ -415,9 +368,9 @@ public final class PhotosCropViewController: UIViewController {
     handlers.didCancel(self)
   }
   
-  @objc private func handleDoneButton() {
+  @objc private func handleSaveButton() {
+
     cropView.applyEditingStack()
     handlers.didFinish(self)
   }
 }
-

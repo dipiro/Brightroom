@@ -172,7 +172,9 @@ final class PhotosCropAspectRatioControl: PixelEditorCodeBasedView {
       store.state.horizontalRectangleApectRatios.forEach { ratio in
         
         let button = AspectRatioButton()
-        
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.black, for: .selected)
+
         stackView.addArrangedSubview(button)
         
         button.onTap { [unowned store] in
@@ -218,6 +220,7 @@ final class PhotosCropAspectRatioControl: PixelEditorCodeBasedView {
     }
     
     originalButton&>.do {
+        $0.setTitleColor(.black, for: .normal)
       $0.setTitle(localizedStrings.button_aspectratio_original, for: .normal)
       $0.onTap { [unowned store] in
         store.commit {
@@ -405,10 +408,13 @@ private final class AspectRatioButton: UIButton {
   
   convenience init() {
     self.init(frame: .zero)
-    
-    setTitleColor(.init(white: 1, alpha: 0.5), for: .normal)
-    setTitleColor(.white, for: .selected)
-    titleLabel?.font = .systemFont(ofSize: 12)
+
+//    setTitleColor(.init(white: 1, alpha: 0.5), for: .normal)
+//    setTitleColor(.white, for: .selected)
+
+    setTitleColor(.black, for: .normal)
+    setTitleColor(.black, for: .selected)
+    titleLabel?.font = .systemFont(ofSize: 15)
     
   }
   
@@ -421,7 +427,7 @@ private final class AspectRatioButton: UIButton {
       // Fallback on earlier versions
     }
     
-    backdropView.backgroundColor = .init(white: 1, alpha: 0.5)
+    backdropView.backgroundColor = UIColor(red: 212/255, green: 231/255, blue: 229/255, alpha: 1)
     
     titleEdgeInsets = .init(top: -2, left: 6, bottom: -2, right: 6)
   }
@@ -483,7 +489,7 @@ private final class AspectRatioDirectionButton: UIControl {
     super.init(frame: .zero)
     
     layer.addSublayer(shapeLayer)
-    iconImageView.tintColor = UIColor(white: 0, alpha: 0.8)
+    iconImageView.tintColor = UIColor(red: 212/255, green: 231/255, blue: 229/255, alpha: 1)
     
     addSubview(iconImageView)
     
@@ -524,23 +530,25 @@ private final class AspectRatioDirectionButton: UIControl {
   }
   
   private func update() {
-    
+
     guard isEnabled else {
-      shapeLayer.strokeColor = UIColor(white: 0.6, alpha: 0.3).cgColor
-      shapeLayer.fillColor = UIColor(white: 0, alpha: 0.3).cgColor
+        shapeLayer.strokeColor = UIColor.gray.cgColor
+        shapeLayer.fillColor = UIColor.gray.cgColor
       iconImageView.isHidden = true
       return
     }
           
     if isSelected {
+
+        // UIColor(white: 0.6, alpha: 1).cgColor
             
-      shapeLayer.strokeColor = UIColor(white: 0.6, alpha: 1).cgColor
-      shapeLayer.fillColor = UIColor(white: 0.6, alpha: 1).cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.fillColor = UIColor.black.cgColor
       iconImageView.isHidden = false
       
     } else {
-      shapeLayer.strokeColor = UIColor(white: 0.6, alpha: 1).cgColor
-      shapeLayer.fillColor = UIColor(white: 0, alpha: 0.6).cgColor
+      shapeLayer.strokeColor = UIColor.black.cgColor
+      shapeLayer.fillColor = UIColor.black.cgColor
       iconImageView.isHidden = true
       
     }

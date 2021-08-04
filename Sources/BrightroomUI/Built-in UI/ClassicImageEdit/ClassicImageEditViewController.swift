@@ -49,7 +49,7 @@ public final class ClassicImageEditViewController: UIViewController {
       }
     }
 
-    public var done = "Done"
+    public var done = "Save"
 
     public var control_preset_normal_name = "Normal"
 
@@ -262,7 +262,7 @@ public final class ClassicImageEditViewController: UIViewController {
           view.translatesAutoresizingMaskIntoConstraints = false
           editContainerView.addSubview(view)
           NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: view.superview!.topAnchor),
+            view.topAnchor.constraint(equalTo: view.superview!.topAnchor, constant: 25),
             view.rightAnchor.constraint(equalTo: view.superview!.rightAnchor),
             view.bottomAnchor.constraint(equalTo: view.superview!.bottomAnchor),
             view.leftAnchor.constraint(equalTo: view.superview!.leftAnchor),
@@ -407,6 +407,8 @@ public final class ClassicImageEditViewController: UIViewController {
         let touchGuardOverlayView = self.touchGuardOverlayView
 
         touchGuardOverlayView.backgroundColor = .init(white: 1, alpha: 0.5)
+
+//        loadingView.backgroundColor = .red
 
         view.addSubview(loadingView)
         view.addSubview(touchGuardOverlayView)

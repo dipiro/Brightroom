@@ -26,55 +26,56 @@ import BrightroomEngine
 #endif
 
 public struct ClassicImageEditOptions {
-  
-  public static let `default`: ClassicImageEditOptions = .init()
-  
-  public static var current: ClassicImageEditOptions = .init()
-  
-  public var croppingAspectRatio: PixelAspectRatio? = .square
-  public var isFaceDetectionEnabled: Bool = false
-  
-  public var classes: Classes = .init()
-  
-  public init() {}
+
+    public static let `default`: ClassicImageEditOptions = .init()
+
+    public static var current: ClassicImageEditOptions = .init()
+
+    //ASPECT
+    public var croppingAspectRatio: PixelAspectRatio? = .none
+    public var isFaceDetectionEnabled: Bool = false
+
+    public var classes: Classes = .init()
+
+    public init() {}
 }
 
 extension ClassicImageEditOptions {
-  public struct Classes {
-    
-    public struct Control {
+    public struct Classes {
 
-      /**
-       You might use `ClassicImageEditNoPresetRootControl` if you do not need using Filter(Preset) panel.
-       */
-      public var rootControl: ClassicImageEditRootControlBase.Type = ClassicImageEditRootControl.self
+        public struct Control {
 
-      public var presetListControl: ClassicImageEditPresetListControlBase.Type = ClassicImageEditPresetListControl.self
-      public var editMenuControl: ClassicImageEditEditMenuControlBase.Type = ClassicImageEditEditMenu.EditMenuControl.self
+            /**
+             You might use `ClassicImageEditNoPresetRootControl` if you do not need using Filter(Preset) panel.
+             */
+            public var rootControl: ClassicImageEditRootControlBase.Type = ClassicImageEditRootControl.self
 
-      public var exposureControl: ClassicImageEditExposureControlBase.Type = ClassicImageEditExposureControl.self
-      public var gaussianBlurControl: ClassicImageEditGaussianBlurControlBase.Type = ClassicImageEditGaussianBlurControl.self
-      public var saturationControl: ClassicImageEditSaturationControlBase.Type = ClassicImageEditSaturationControl.self
-      public var contrastControl: ClassicImageEditContrastControlBase.Type = ClassicImageEditContrastControl.self
-      public var temperatureControl: ClassicImageEditTemperatureControlBase.Type = ClassicImageEditTemperatureControl.self
-      public var vignetteControl: ClassicImageEditVignetteControlBase.Type = ClassicImageEditVignetteControl.self
-      public var highlightsControl: ClassicImageEditHighlightsControlBase.Type = ClassicImageEditHighlightsControl.self
-      public var shadowsControl: ClassicImageEditShadowsControlBase.Type = ClassicImageEditShadowsControl.self
-      public var fadeControl: ClassicImageEditFadeControlBase.Type = ClassicImageEditFadeControl.self
-      public var clarityControl: ClassicImageEditClarityControlBase.Type = ClassicImageEditClarityControl.self
-      public var sharpenControl: ClassicImageEditSharpenControlBase.Type = ClassicImageEditSharpenControl.self
-      
-      public var ignoredEditMenu: [ClassicImageEditEditMenu] = []
-      
-      public init() {
-        
-      }
+            public var presetListControl: ClassicImageEditPresetListControlBase.Type = ClassicImageEditPresetListControl.self
+            public var editMenuControl: ClassicImageEditEditMenuControlBase.Type = ClassicImageEditEditMenu.EditMenuControl.self
+
+            public var exposureControl: ClassicImageEditExposureControlBase.Type = ClassicImageEditExposureControl.self
+            public var gaussianBlurControl: ClassicImageEditGaussianBlurControlBase.Type = ClassicImageEditGaussianBlurControl.self
+            public var saturationControl: ClassicImageEditSaturationControlBase.Type = ClassicImageEditSaturationControl.self
+            public var contrastControl: ClassicImageEditContrastControlBase.Type = ClassicImageEditContrastControl.self
+            public var temperatureControl: ClassicImageEditTemperatureControlBase.Type = ClassicImageEditTemperatureControl.self
+            public var vignetteControl: ClassicImageEditVignetteControlBase.Type = ClassicImageEditVignetteControl.self
+            public var highlightsControl: ClassicImageEditHighlightsControlBase.Type = ClassicImageEditHighlightsControl.self
+            public var shadowsControl: ClassicImageEditShadowsControlBase.Type = ClassicImageEditShadowsControl.self
+            public var fadeControl: ClassicImageEditFadeControlBase.Type = ClassicImageEditFadeControl.self
+            public var clarityControl: ClassicImageEditClarityControlBase.Type = ClassicImageEditClarityControl.self
+            public var sharpenControl: ClassicImageEditSharpenControlBase.Type = ClassicImageEditSharpenControl.self
+
+            public var ignoredEditMenu: [ClassicImageEditEditMenu] = []
+
+            public init() {
+
+            }
+        }
+
+        public var control: Control = .init()
+
+        public init() {
+
+        }
     }
-    
-    public var control: Control = .init()
-    
-    public init() {
-      
-    }
-  }
 }

@@ -51,11 +51,12 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public let contentView = UIView()
     public let itemsView = UIStackView()
     public let scrollView = UIScrollView()
-    
+
+    // icons
     public lazy var adjustmentButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editAdjustment,
-        image: UIImage(named: "adjustment", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Adjust", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(adjustment), for: .touchUpInside)
       return button
@@ -73,7 +74,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var exposureButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editBrightness,
-        image: UIImage(named: "brightness", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Brightness", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(brightness), for: .touchUpInside)
       return button
