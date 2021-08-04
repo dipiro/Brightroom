@@ -146,6 +146,4 @@ public final class CanvasView: PixelEditorCodeBasedView {
     }
     previewShapeLayer?.frame = bounds
   }
-  
 }
-

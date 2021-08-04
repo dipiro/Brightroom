@@ -271,6 +271,7 @@ extension CropView {
      Displays a view as an overlay.
      e.g. grid view
      */
+
     func setCropInsideOverlay(_ newOverlay: CropInsideOverlayBase?) {
       cropInsideOverlay?.removeFromSuperview()
 

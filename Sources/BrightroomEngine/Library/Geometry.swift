@@ -61,6 +61,7 @@ public enum Geometry {
       width: ceil(size.width),
       height: ceil(size.height)
     )
+
   }
 
   public static func sizeThatAspectFill(aspectRatio: CGSize, minimumSize: CGSize) -> CGSize {

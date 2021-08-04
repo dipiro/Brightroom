@@ -44,7 +44,7 @@ extension CropView {
         cornerBottomRightVerticalShapeLayer,
       ].forEach {
         addSubview($0)
-        $0.backgroundColor = UIColor.white
+        $0.backgroundColor = .black
       }
     }
 
@@ -54,7 +54,7 @@ extension CropView {
       edgeShapeLayer&>.do {
         $0.frame = bounds.insetBy(dx: -1, dy: -1)
         $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.white.cgColor
+        $0.layer.borderColor = UIColor.black.cgColor
       }
 
       do {
@@ -149,7 +149,7 @@ extension CropView {
     private let horizontalLine1 = UIView()
     private let horizontalLine2 = UIView()
 
-    public init(lineColor: UIColor = UIColor(white: 1, alpha: 0.3)) {
+    public init(lineColor: UIColor = .black) {
       super.init(frame: .zero)
 
       isUserInteractionEnabled = false

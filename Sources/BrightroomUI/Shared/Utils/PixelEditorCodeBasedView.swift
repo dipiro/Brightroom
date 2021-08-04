@@ -12,7 +12,7 @@ import UIKit
  A view that can be initializde only from code. (No supports to init from Nib)
  */
 open class PixelEditorCodeBasedView : UIView {
-  
+
   public override init(frame: CGRect) {
     super.init(frame: frame)
   }

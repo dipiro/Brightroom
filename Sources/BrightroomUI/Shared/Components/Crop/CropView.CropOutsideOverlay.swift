@@ -30,8 +30,8 @@ extension CropView {
     private var currentAnimator: UIViewPropertyAnimator?
     
     public init(
-      blurEffect: UIBlurEffect = UIBlurEffect(style: .dark),
-      dimmingColor: UIColor = .init(white: 0, alpha: 0.6)
+      blurEffect: UIBlurEffect = UIBlurEffect(style: .light),
+        dimmingColor: UIColor = .init(white: 1, alpha: 0.5)
     ) {
       
       self.effectView = UIVisualEffectView(effect: blurEffect)
