@@ -65,7 +65,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var maskButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editMask,
-        image: UIImage(named: "mask", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Mask", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(masking), for: .touchUpInside)
       return button
@@ -83,7 +83,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var gaussianBlurButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editBlur,
-        image: UIImage(named: "blur", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Blur", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(blur), for: .touchUpInside)
       return button
@@ -92,7 +92,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var contrastButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editContrast,
-        image: UIImage(named: "contrast", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Contrast", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(contrast), for: .touchUpInside)
       return button
@@ -101,7 +101,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var temperatureButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editTemperature,
-        image: UIImage(named: "temperature", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Temperature", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(warmth), for: .touchUpInside)
       return button
@@ -110,7 +110,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var saturationButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editSaturation,
-        image: UIImage(named: "saturation", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Saturation", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(saturation), for: .touchUpInside)
       return button
@@ -119,7 +119,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var highlightsButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editHighlights,
-        image: UIImage(named: "highlights", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Highlights", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(highlights), for: .touchUpInside)
       return button
@@ -128,7 +128,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var shadowsButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editShadows,
-        image: UIImage(named: "shadows", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Shadows", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(shadows), for: .touchUpInside)
       return button
@@ -137,7 +137,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var vignetteButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editVignette,
-        image: UIImage(named: "vignette", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Vignette", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(vignette), for: .touchUpInside)
       return button
@@ -146,7 +146,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var fadeButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editFade,
-        image: UIImage(named: "fade", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Fade", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(fade), for: .touchUpInside)
       return button
@@ -155,7 +155,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var sharpenButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editSharpen,
-        image: UIImage(named: "sharpen", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Sharpen", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(sharpen), for: .touchUpInside)
       return button
@@ -164,7 +164,7 @@ public enum ClassicImageEditEditMenu: CaseIterable {
     public lazy var clarityButton: ButtonView = {
       let button = ButtonView(
         name: viewModel.localizedStrings.editClarity,
-        image: UIImage(named: "structure", in: bundle, compatibleWith: nil)!
+        image: UIImage(named: "Clarity", in: bundle, compatibleWith: nil)!
       )
       button.addTarget(self, action: #selector(clarity), for: .touchUpInside)
       return button
