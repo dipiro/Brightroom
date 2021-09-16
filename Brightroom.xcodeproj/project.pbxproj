@@ -1537,7 +1537,6 @@
 				4B9D4570216DF1A1003A240A /* Media.xcassets */,
 				4BC95D8925E5586B000595AE /* Built-in UI */,
 				4B3F6024260F216C006FE127 /* Shared */,
-				57E0A92826F395020054FCB7 /* Localizable.strings */,
 			);
 			path = BrightroomUI;
 			sourceTree = "<group>";
@@ -1907,6 +1906,7 @@
 			isa = PBXGroup;
 			children = (
 				57E0A92126F393CC0054FCB7 /* String+Localize.swift */,
+				57E0A92826F395020054FCB7 /* Localizable.strings */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
