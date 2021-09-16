@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Brightroom
+
+  Created by Victor on 9/16/21.
+  Copyright © 2021 muukii. All rights reserved.
+*/
+
+"Save" = "Сохранить";
+"Cancel" = "Отмена";
+"Filter" = "Фильтр";
+"Edit" = "Редактировать";
+"Adjust" = "Регулировать";
+"Mask" = "Маска";
+"Highlights" = "Осветление";
+"Shadows" = "Тени";
+"Saturation" = "Насыщенность";
+"Contrast" = "Контраст";
+"Blur" = "Размытие";
+"Temperature" = "Температура";
+"Brightness" = "Яркость";
+"Vignette" = "Виньетка";
+"Fade" = "Выгорание";
+"Clarity" = "Четкость";
+"Sharpen" = "Зернистость";
+"Clear" = "Очистить";
+"Normal" = "Оригинал";
