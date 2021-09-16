@@ -1773,7 +1773,6 @@
 		4BC95D8925E5586B000595AE /* Built-in UI */ = {
 			isa = PBXGroup;
 			children = (
-				57E0A91F26F393AB0054FCB7 /* Extensions */,
 				4B835DFB25E95D3C00EC84D1 /* PhotosCrop */,
 				4BEEFF1B25E6827B008144EA /* ClassicImageEdit */,
 			);
@@ -1873,6 +1872,7 @@
 		4BEEFF1B25E6827B008144EA /* ClassicImageEdit */ = {
 			isa = PBXGroup;
 			children = (
+				57E0A91F26F393AB0054FCB7 /* Extensions */,
 				4B34578A217502F900716DA0 /* ClassicImageEditStyle.swift */,
 				4BA8E73C217C716700940518 /* ClassicImageEditOptions.swift */,
 				4B47D060216CC5480007B594 /* ClassicImageEditViewController.swift */,
