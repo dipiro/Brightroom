@@ -36,12 +36,12 @@ import BrightroomEngine
 public final class PhotosCropViewController: UIViewController {
   
   public struct LocalizedStrings {
-    public var button_done_title: String = "Done"
-    public var button_cancel_title: String = "Cancel"
-    public var button_reset_title: String = "Reset"
-    public var button_aspectratio_original: String = "ORIGINAL"
-    public var button_aspectratio_freeform: String = "FREEFORM"
-    public var button_aspectratio_square: String = "SQUARE"
+    public var button_done_title: String = "Done".localized
+    public var button_cancel_title: String = "Cancel".localized
+    public var button_reset_title: String = "Reset".localized
+    public var button_aspectratio_original: String = "ORIGINAL".localized
+    public var button_aspectratio_freeform: String = "FREEFORM".localized
+    public var button_aspectratio_square: String = "SQUARE".localized
     
     public init() {}
   }
