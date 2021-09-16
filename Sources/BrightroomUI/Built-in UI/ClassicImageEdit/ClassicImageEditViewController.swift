@@ -49,30 +49,30 @@ public final class ClassicImageEditViewController: UIViewController {
       }
     }
 
-    public var done = "Save"
+    public var done = "Save".localized
 
-    public var control_preset_normal_name = "Normal"
+    public var control_preset_normal_name = "Normal".localized
 
-    public var cancel = "Cancel"
-    public var filter = "Filter"
-    public var edit = "Edit"
+    public var cancel = "Cancel".localized
+    public var filter = "Filter".localized
+    public var edit = "Edit".localized
 
-    public var editAdjustment = "Adjust"
-    public var editMask = "Mask"
-    public var editHighlights = "Highlights"
-    public var editShadows = "Shadows"
-    public var editSaturation = "Saturation"
-    public var editContrast = "Contrast"
-    public var editBlur = "Blur"
-    public var editTemperature = "Temperature"
-    public var editBrightness = "Brightness"
-    public var editVignette = "Vignette"
-    public var editFade = "Fade"
-    public var editClarity = "Clarity"
-    public var editSharpen = "Sharpen"
+    public var editAdjustment = "Adjust".localized
+    public var editMask = "Mask".localized
+    public var editHighlights = "Highlights".localized
+    public var editShadows = "Shadows".localized
+    public var editSaturation = "Saturation".localized
+    public var editContrast = "Contrast".localized
+    public var editBlur = "Blur".localized
+    public var editTemperature = "Temperature".localized
+    public var editBrightness = "Brightness".localized
+    public var editVignette = "Vignette".localized
+    public var editFade = "Fade".localized
+    public var editClarity = "Clarity".localized
+    public var editSharpen = "Sharpen".localized
     public var brushSizeSmall = "◦"
     public var brushSizeLarge = "◯"
-    public var clear = "Clear"
+    public var clear = "Clear".localized
 
     public init() {}
   }
