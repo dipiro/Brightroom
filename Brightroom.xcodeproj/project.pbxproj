@@ -1574,7 +1574,6 @@
 		4B600AF3216B7A94001E1456 = {
 			isa = PBXGroup;
 			children = (
-				57E0A91F26F393AB0054FCB7 /* Extensions */,
 				4BE9B3D1260BA72D000A3D09 /* Bundle */,
 				4B4C7C8E260A6EF70082240A /* Archives */,
 				4B6A5F5B2179D43A004D68DC /* Sources */,
@@ -1774,6 +1773,7 @@
 		4BC95D8925E5586B000595AE /* Built-in UI */ = {
 			isa = PBXGroup;
 			children = (
+				57E0A91F26F393AB0054FCB7 /* Extensions */,
 				4B835DFB25E95D3C00EC84D1 /* PhotosCrop */,
 				4BEEFF1B25E6827B008144EA /* ClassicImageEdit */,
 			);
