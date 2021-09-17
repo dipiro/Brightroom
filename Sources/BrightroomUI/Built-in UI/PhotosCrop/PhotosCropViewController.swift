@@ -154,14 +154,14 @@ public final class PhotosCropViewController: UIViewController {
     view.clipsToBounds = true
 
     let rotateButton = UIBarButtonItem(
-        image: UIImage(named: "Reset"),
+      image: UIImage(named: "Reset".localized),
         style: .plain,
         target: self,
         action: #selector(handleRotateButton)
     )
 
     let saveButton = UIBarButtonItem(
-        title: "Save",
+      title: "Save".localized,
         style: .done,
         target: self,
         action: #selector(handleSaveButton)
